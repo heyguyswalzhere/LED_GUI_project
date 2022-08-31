@@ -16,6 +16,7 @@ led = LED(17)
 
 
 #This is the function that controls the light
+#It must be defined before it is called, so the PushButton code will come next. 
 def light_on():
     led.toggle()
     if led.is_lit:
@@ -25,9 +26,12 @@ def light_on():
     
 
 
-    
+#normally you have to call a function by itself for it to work,
+#but in guizero you can comman a PushButton with a function.
+#In the next line, I call the light_on function in the code 
+#that creates the PushButton on my GUI.  
 
 button_light = PushButton(app, command = light_on, text = "Click me to turn on the light!")
 
-    
+#This is the function that calls the GUI "into existence" 
 app.display()
